@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>SegLD: Achieving Universal, Zero-Shot and Open-Vocabulary Segmentation through Multimodal Fusion via Latent Diffusion Processes</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="font-size: 2rem;">SegLD: Achieving Universal, Zero-Shot and Open-Vocabulary Segmentation through Multimodal Fusion via Latent Diffusion Processes</h1>
+          <div class="is-size-5 publication-authors" style="font-size: 1.25rem;">
+              <!-- Paper authors -->
+              <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=7bp8a4oAAAAJ&hl=zh-CN" target="_blank">Hongtao Zheng</a></sup>,</span>
+                <span class="author-block">
+                    <a href="https://scholar.google.com.hk/citations?user=xWT2umYAAAAJ&hl=zh-CN&oi=sra" target="_blank">Yifei Ding</a></sup>,</span>
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=CEiW_HQAAAAJ" target="_blank">Zilong Wang</a></sup>,</span>
+                  <span class="author-block">
+                  <a href="https://scholar.google.com.hk/citations?user=Pz1_XcQAAAAJ&hl=zh-CN&oi=sra" target="_blank">Xinyan Huang</a><sup>*</sup>
+                  <span class="author-block">
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                  <span class="author-block">
+                    The HongKong Polytechnic University, HongKong, China<br>
+                    <span style="color: magenta;">Information Fusion, 2024</span>
+                  </span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding author</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S1566253524002872" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/ZhengHongtao2001/SegLD" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                      
+              <!-- Huggingface PDF link -->
+              <span class="link-block">
+                <a href="https://huggingface.curated.co/" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="static/images/huggingface.ico" alt="Huggingface Logo" style="width: 20px; height: 20px;">
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--                     <span class="eql-cntrb"><small><br><sup>Corresponding author</sup></small></span> -->
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h4 class="title is-5">Macro architecture of SegLD</h2>
+          <div class="content has-text-justified">
+            <p>
+              <!-- image -->
+              <img id="teaser" width="100%" src="static/images/1.jpg">
+           </p>
+  
+          </div>
+        </div>
+      </div>
+        
+    </div>
+  </section>
+
+  
+<!-- <img src="static/images/1.jpg" alt="Macro architecture of SegLD" style="display: block; margin: 0 auto; height: auto;"> -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Open-vocabulary learning can identify categories marked during training (seen categories) and generalize to categories not annotated in the training set (unseen categories). It could theoretically extend segmentation systems to more universal applications. However, current open-vocabulary segmentation frameworks are primarily suited for specific tasks or require retraining according to the task, and they significantly underperform in inferring  seen categories compared to fully supervised frameworks. Therefore, we introduce a universal open-vocabulary segmentation framework based on the latent diffusion process (\textbf{SegLD}), which requires only a single training session on a panoptic dataset to achieve inference across all open-vocabulary segmentation tasks, and reaches SOTA segmentation performance for both seen and unseen categories in every task. Specifically, SegLD comprises two stages: in the first stage, we deploy two parallel latent diffusion processes to deeply fuse the text (image caption or category labels) and image information, further aggregating the multi-scale features output from both latent diffusion processes on a scale basis. In the second stage, we introduce text queries, text list queries, and task queries, facilitating the learning of inter-category and inter-task differences through the computation of contrastive losses between them. Text queries are then further fed into a Transformer Decoder to obtain category-agnostic segmentation masks. Then we establish classification loss functions for the type of text input during training, whether image captions or category labels, to help assign a category label from the open vocabulary to each predicted binary mask. Experimental results show that, with just a single training session, SegLD significantly outperforms other contemporary SOTA fully supervised segmentation frameworks and open-vocabulary segmentation frameworks across all evaluation metrics for both known and unknown categories on the ADE20K, Cityscapes, and COCO datasets. This highlights SegLD's capability as a universal segmentation framework, with the potential to replace other segmentation frameworks and adapt to various segmentation domains.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+  
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/2.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Pipeline of SegLD Training Process.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/3.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Pipeline of Mask-Decoder Training Process.
+        </h2>
+      </div>
+      <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/4.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Pipeline of SegLD Inference Process.
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/5.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          ualitative visualization of open-vocabulary panoptic segmentation results on ADE20K after training SegLD on the COCO.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/6.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Qualitative visualization of open-vocabulary panoptic segmentation results on VOC after training SegLD on the COCO.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/7.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Qualitative visualization of open-vocabulary panoptic segmentation results on COCO after training SegLD on the ADE20K.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/8.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+         ualitative visualization of open-vocabulary panoptic segmentation results on VOC after training SegLD on the ADE20K.
+       </h2>
+     </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/9.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Applications of instance segmentation algorithms on Fire segmentation (FireDM set).
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+  
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{zheng2024segld,
+  title={SegLD: Achieving universal, zero-shot and open-vocabulary segmentation through multimodal fusion via latent diffusion processes},
+  author={Zheng, Hongtao and Ding, Yifei and Wang, Zilong and Huang, Xinyan},
+  journal={Information Fusion},
+  pages={102509},
+  year={2024},
+  publisher={Elsevier}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
