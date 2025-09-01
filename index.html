@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta content="Photorealistic Fire Scene Video Generation via Physical Simulation and Pre-train Text-to-Image Diffusion Model"
+    <meta content="Photorealistic Fire Scene Video Generation via Multimodal Large Language Model and Pre-trained Video Diffusion Model"
           name="description">
     <meta content="T2VFirre, Stable Diffusion XL" name="keywords">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>Photorealistic Fire Scene Video Generation via Physical Simulation and Pre-train Text-to-Image Diffusion Model</title>
+    <title>Photorealistic Fire Scene Video Generation via Multimodal Large Language Model and Pre-trained Video Diffusion Model</title>
 
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
           rel="stylesheet">
@@ -70,12 +70,12 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered">
                 <div class="column has-text-centered">
-                    <h1 class="title is-1 publication-title">Photorealistic Fire Scene Video Generation via Physical Simulation
-and Pre-train Text-to-Image Diffusion Model</h1>
+                    <h1 class="title is-1 publication-title">Photorealistic Fire Scene Video Generation via Multimodal Large
+Language Model and Pre-trained Video Diffusion Model</h1>
                     <div class="is-size-5 publication-authors">
             <span class="author-block">
               
-              <a href="">Hongtao Zheng</a><sup>1,2</sup>,</span>
+              <a href="">Hongtao Zheng</a><sup>1</sup>,</span>
                         <span class="author-block">
               <a href="">Xinyan Huang</a><sup>1,*</sup>
                         </span>
@@ -83,7 +83,6 @@ and Pre-train Text-to-Image Diffusion Model</h1>
 
                     <div class="is-size-5 publication-authors">
                         <span class="author-block"><sup>1</sup>Department of Building Environment and Energy Engineering, The Hong Kong Polytechnic University, HongKong SAR, China.</span>
-                        <span class="author-block"><sup>2</sup>Department of Computer Science,  University of Colorado, Boulder, CO, USA.</span>
                     </div>
 
                   <div class="column has-text-centered">
@@ -99,27 +98,6 @@ and Pre-train Text-to-Image Diffusion Model</h1>
                       </a>
                     </span>
 
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/ZhengHongtao2001/T2VFire" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-                      
-              <!-- Huggingface PDF link -->
-              <span class="link-block">
-                <a href="https://huggingface.co/" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <img src="static/images/huggingface.ico" alt="Huggingface Logo" style="width: 20px; height: 20px;">
-                  </span>
-                  <span>Demo</span>
-                </a>
-              </span>
             </div>
           </div>
         </div>
@@ -602,12 +580,11 @@ and Pre-train Text-to-Image Diffusion Model</h1>
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
                     <p>
-Text-to-video diffusion models have made significant progress in recent years, yet there has been no dedicated research on generating fire scene videos with physical realism and visual fidelity. To address this gap, we present
-T2VFire (Text-to-Video Fire Scene Generation), the first model specifically designed for fire scene video generation. This training-free framework integrates visual language model
-(VLM) agents, Blender’s physics engine, and text-to-image diffusion models to enhance video synthesis quality. T2VFire employs a fine-tuned VLM agent and Blender in an iterative process to create scene components that align with
-textual descriptions and fire dynamics, which are then used as prompts for Stable Diffusion XL (SDXL) to generate videos. Additionally, the model incorporates a cross-frame attention
-mechanism and convex combination of background masks to improve temporal consistency across frames. Experimental results demonstrate that T2VFire excels at producing highquality fire scene videos, establishing a new paradigm for
-video generation in virtual and augmented reality, while also supporting smart firefighting and the development of digital twin systems for building fire safety management.
+Text-to-video diffusion models have made significant progress. However, there is still a lack of dedicated research on generating fire scene videos with physical realism
+and visual fidelity. To address this gap, we propose T2VFire (Text-to-Video Fire Scene Generation). T2VFire uses GPT-4o as the core engine, which is integrated with an external firerelated knowledge base and a retrieval-augmented generation
+(RAG) mechanism that can be dynamically updated based on prompts. With the support of this knowledge, the system first expands the user’s initial text description and generates a
+keyframe image. Then, through iterative prompt optimization, it guides a pretrained video diffusion model to generate fire scene videos with physical consistency. Experimental results
+show that T2VFire performs well in producing fire scene videos with both physical consistency and visual realism. This method lays a solid foundation for smart firefighting and digital twin systems in future building fire safety management.
                     </p>
                 </div>
             </div>
