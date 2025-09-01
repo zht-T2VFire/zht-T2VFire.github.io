@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="Photorealistic Fire Scene Video Generation via Physical Simulation and Pre-train Text-to-Image Diffusion Model"
+          name="description">
+    <meta content="T2VFirre, Stable Diffusion XL" name="keywords">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Photorealistic Fire Scene Video Generation via Physical Simulation and Pre-train Text-to-Image Diffusion Model</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link href="./static/css/bulma.min.css" rel="stylesheet">
+    <link href="./static/css/bulma-carousel.min.css" rel="stylesheet">
+    <link href="./static/css/bulma-slider.min.css" rel="stylesheet">
+    <link href="./static/css/fontawesome.all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+          rel="stylesheet">
+    <link href="./static/css/index.css" rel="stylesheet">
+    <link href="./static/images/favicon.ico" rel="icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <style>
+        .special-font {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .video-item {
+            width: 18%;
+            margin: 5px;
+            text-align: center;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+</nav>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">Photorealistic Fire Scene Video Generation via Physical Simulation
+and Pre-train Text-to-Image Diffusion Model</h1>
+                    <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              
+              <a href="">Hongtao Zheng</a><sup>1,2</sup>,</span>
+                        <span class="author-block">
+              <a href="">Xinyan Huang</a><sup>1,*</sup>
+                        </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>1</sup>Department of Building Environment and Energy Engineering, The Hong Kong Polytechnic University, HongKong SAR, China.</span>
+                        <span class="author-block"><sup>2</sup>Department of Computer Science,  University of Colorado, Boulder, CO, USA.</span>
+                    </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://www.sciencedirect.com/science/article" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/ZhengHongtao2001/T2VFire" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                      
+              <!-- Huggingface PDF link -->
+              <span class="link-block">
+                <a href="https://huggingface.co/" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="static/images/huggingface.ico" alt="Huggingface Logo" style="width: 20px; height: 20px;">
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section">
+    <div class="container is-max-desktop is-centered has-text-centered">
+
+        <h2 class="title">Text-to-Video Results Visualization (4s short video)</h2>
+<!--         <p>All videos are 1080p, 24 fps.</p> -->
+        <br/>
+        <div class="columns is-centered">
+            <!-- Visual Effects. -->
+            <div class="column">
+                <div class="content">
+
+                    <p class="special-font">
+                        a. A brightly lit fire engulfing the upper stories of a futuristic skyscraper in a busy metropolitan area. The scene captures the fire's intense motion, with flames spreading rapidly through broken windows and sending glowing sparks into the air.
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="a. A brightly lit fire engulfing the upper stories of a futuristic skyscraper in a busy metropolitan area. The scene captures the fire's intense motion, with flames spreading rapidly through broken windows and sending glowing sparks into the air."
+                           loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/a.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>
+                    
+                    <p class="special-font">
+                        c. A cruise ship docked at the pier has caught fire, with thick smoke rising into the sky.
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="c. A cruise ship docked at the pier has caught fire, with thick smoke rising into the sky."
+                           loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/c.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>
+                    <p class="special-font">
+                       e. On a bright daytime, a cargo ship at a bustling harbor pier catches fire. Flames burst fiercely from the ship’s hold, and thick black smoke rises, contrasting sharply with the deep blue sea.
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="e. On a bright daytime, a cargo ship at a bustling harbor pier catches fire. Flames burst fiercely from the ship’s hold, and thick black smoke rises, contrasting sharply with the deep blue sea."
+                           loop="" muted="" playsinline="">
+                        <source src="./static/Video/e.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>
+                    <p class="special-font">
+                        g.On a sunny afternoon, a fire breaks out at an amusement park ride. Bright flames erupt from the roof of a carousel, and thick smoke slowly rises into the clear blue sky.
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="g. On a sunny afternoon, a fire breaks out at an amusement park ride. Bright flames erupt from the roof of a carousel, and thick smoke slowly rises into the clear blue sky." loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/g.mp4"
+                                type="video/mp4">
+                    </video>
+
+                    <p class="special-font">
+                        i. The fire originates on a boat, with the fire source located near the center of the upper deck.
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="i. The fire originates on a boat, with the fire source located near the center of the upper deck." loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/i.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>
+                    <p class="special-font">
+                        k. Flames are blazing intensely at an ocean exploration base, engulfing the research facility with a furious glow.
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="k. Flames are blazing intensely at an ocean exploration base, engulfing the research facility with a furious glow."
+                           loop="" muted="" playsinline="">
+                        <source src="./static/Video/k.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>
+                    <p class="special-font">
+                        m. A dense forest engulfed in flames, with bright orange and red fire spreading rapidly through the trees. 
+                    </p>
+                    <video autoplay="" controls="" height="100%"
+                           id="m. A dense forest engulfed in flames, with bright orange and red fire spreading rapidly through the trees." loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/m.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <!--/ Visual Effects. -->
+
+            <!-- Matting. -->
+            <div class="column">
+                <div class="columns is-centered">
+                    <div class="column content">
+
+                        <p class="special-font">
+                           b. A towering skyscraper engulfed in flames at night, with bright orange-red flames spreading rapidly across multiple floors, illuminating the surrounding cityscape. Thick black smoke billows into the sky, creating dramatic contrast against the fire's intense glow.
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="b. A towering skyscraper engulfed in flames at night, with bright orange-red flames spreading rapidly across multiple floors, illuminating the surrounding cityscape. Thick black smoke billows into the sky, creating dramatic contrast against the fire's intense glow." loop=""
+                               muted="" playsinline="">
+                            <source src="./static/Video/b.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <hr>
+                        
+                        <p class="special-font">
+                            d. In the darkness of the night, a wildfire is raging not far from the forest.
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="d. In the darkness of the night, a wildfire is raging not far from the forest." loop=""
+                               muted="" playsinline="">
+                            <source src="./static/Video/d.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <hr>
+                        <p class="special-font">
+                           f. On a sunny morning, a hillside village is engulfed in flames. A wooden house emits billowing smoke, with the fire illuminating the surrounding tiled roofs and the lush green forest.
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="f. On a sunny morning, a hillside village is engulfed in flames. A wooden house emits billowing smoke, with the fire illuminating the surrounding tiled roofs and the lush green forest."
+                               loop="" muted="" playsinline="">
+                            <source src="./static/Video/f.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <hr>
+                        <p class="special-font">
+                            h. In a picturesque countryside, on a bright and sunny day, wisps of smoke rise beside an old wooden windmill. The smoke drifts gently with the breeze, eventually blending into the azure sky.
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="h. In a picturesque countryside, on a bright and sunny day, wisps of smoke rise beside an old wooden windmill. The smoke drifts gently with the breeze, eventually blending into the azure sky. "
+                               loop=""
+                               muted="" playsinline="">
+                            <source src="./static/Video/h.mp4"
+                                    type="video/mp4">
+                        </video>
+
+                        <p class="special-font">
+                            j. A boat sailing near the shore is engulfed in raging flames.
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="j. A boat sailing near the shore is engulfed in raging flames." loop=""
+                               muted="" playsinline="">
+                            <source src="./static/Video/j.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <hr>
+                        <p class="special-font">
+                        l. Flames are blazing fiercely on the roof and walls of an abandoned building.
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="l. Flames are blazing fiercely on the roof and walls of an abandoned building."
+                               loop="" muted="" playsinline="">
+                            <source src="./static/Video/l.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <hr>
+                        <p class="special-font">
+                        n. The second floor of the wooden cabin is ablaze, and as the view pans upward, the bright moon comes into sight.
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="n. The second floor of the wooden cabin is ablaze, and as the view pans upward, the bright moon comes into sight." loop=""
+                               muted="" playsinline="">
+                            <source src="./static/Video/n.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!--/ Matting. -->
+
+
+        <!--/ Concurrent Work. -->
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<section class="section">
+    <div class="container is-max-desktop is-centered has-text-centered">
+
+        <h2 class="title">Text-to-Video Visual Effect Comparison (4s Short video)</h2>
+        <p class="special-font">CogVideoX is currently the most advanced open-source text-to-video generation model.</p>
+        <br/>
+        <div class="columns is-centered">
+            <!-- Visual Effects. -->
+            <div class="column">
+                <div class="content">
+
+                    <p class="special-font">
+                       CogVideoX
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="CogVideoX"
+                           loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/1_C.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>
+                      <p class="special-font">
+                      CogVideoX
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="CogVideoX"
+                           loop="" muted="" playsinline="">
+                        <source src="./static/Video/2_C.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>                  
+                    <p class="special-font">
+                      CogVideoX
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="CogVideoX"
+                           loop="" muted="" playsinline="">
+                        <source src="./static/Video/3_C.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>
+                    <p class="special-font">
+                        CogVideoX
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="CogVideoX" loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/4_C.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <!--/ Visual Effects. -->
+
+            <!-- Matting. -->
+            <div class="column">
+                <div class="columns is-centered">
+                    <div class="column content">
+
+                        <p class="special-font">
+                           T2VFire (Ours)
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="T2VFire (Ours)" loop=""
+                               muted="" playsinline="">
+                            <source src="./static/Video/1_T.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <hr>
+                        <p class="special-font">
+                          T2VFire (Ours)
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="T2VFire (Ours)"
+                               loop="" muted="" playsinline="">
+                            <source src="./static/Video/2_T.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <hr>
+                    <p class="special-font">
+                        T2VFire (Ours)
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="T2VFire (Ours)"
+                           loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/3_T.mp4"
+                                type="video/mp4">
+                    </video>
+                        <hr>
+                        <p class="special-font">
+                            T2VFire (Ours)
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="T2VFire (Ours)"
+                               loop=""
+                               muted="" playsinline="">
+                            <source src="./static/Video/4_T.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!--/ Matting. -->
+
+
+        <!--/ Concurrent Work. -->
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+<section class="section">
+    <div class="container is-max-desktop is-centered has-text-centered">
+
+        <h2 class="title">Text-to-Video Visual Effect Comparison (10s Long video)</h2>
+        <p class="special-font">CogVideoX is currently the most advanced open-source text-to-video generation model.</p>
+        <br/>
+        <div class="columns is-centered">
+            <!-- Visual Effects. -->
+            <div class="column">
+                <div class="content">
+
+                    <p class="special-font">
+                       CogVideoX
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="CogVideoX"
+                           loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/o_10_x.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>
+                    
+                    <p class="special-font">
+                        CogVideoX
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="CogVideoX"
+                           loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/p_10_x.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>
+                    <p class="special-font">
+                      CogVideoX
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="CogVideoX"
+                           loop="" muted="" playsinline="">
+                        <source src="./static/Video/q_10_x.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>
+                    <p class="special-font">
+                        CogVideoX
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="CogVideoX" loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/r_10_x.mp4"
+                                type="video/mp4">
+                    </video>
+
+                    <p class="special-font">
+                        CogVideoX
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="CogVideoX" loop=""
+                           muted="" playsinline="">
+                        <source src="./static/Video/s_10_x.mp4"
+                                type="video/mp4">
+                    </video>
+                    <hr>
+                    <p class="special-font">
+                        CogVideoX
+                    </p>
+                    <video autoplay="" controls="" height="100%" id="CogVideoX"
+                           loop="" muted="" playsinline="">
+                        <source src="./static/Video/t_10_x.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <!--/ Visual Effects. -->
+
+            <!-- Matting. -->
+            <div class="column">
+                <div class="columns is-centered">
+                    <div class="column content">
+
+                        <p class="special-font">
+                           T2VFire (Ours)
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="T2VFire (Ours)" loop=""
+                               muted="" playsinline="">
+                            <source src="./static/Video/o_10.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <hr>
+                        
+                        <p class="special-font">
+                            T2VFire (Ours)
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="T2VFire (Ours)" loop=""
+                               muted="" playsinline="">
+                            <source src="./static/Video/p_10.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <hr>
+                        <p class="special-font">
+                          T2VFire (Ours)
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="T2VFire (Ours)"
+                               loop="" muted="" playsinline="">
+                            <source src="./static/Video/q_10.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <hr>
+                        <p class="special-font">
+                            T2VFire (Ours)
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="T2VFire (Ours)"
+                               loop=""
+                               muted="" playsinline="">
+                            <source src="./static/Video/r_10.mp4"
+                                    type="video/mp4">
+                        </video>
+
+                        <p class="special-font">
+                           T2VFire (Ours)
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="T2VFire (Ours)" loop=""
+                               muted="" playsinline="">
+                            <source src="./static/Video/s_10.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <hr>
+                        <p class="special-font">
+                        T2VFire (Ours)
+                        </p>
+                        <video autoplay="" controls="" height="100%" id="T2VFire (Ours)"
+                               loop="" muted="" playsinline="">
+                            <source src="./static/Video/t_10.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!--/ Matting. -->
+
+
+        <!--/ Concurrent Work. -->
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+Text-to-video diffusion models have made significant progress in recent years, yet there has been no dedicated research on generating fire scene videos with physical realism and visual fidelity. To address this gap, we present
+T2VFire (Text-to-Video Fire Scene Generation), the first model specifically designed for fire scene video generation. This training-free framework integrates visual language model
+(VLM) agents, Blender’s physics engine, and text-to-image diffusion models to enhance video synthesis quality. T2VFire employs a fine-tuned VLM agent and Blender in an iterative process to create scene components that align with
+textual descriptions and fire dynamics, which are then used as prompts for Stable Diffusion XL (SDXL) to generate videos. Additionally, the model incorporates a cross-frame attention
+mechanism and convex combination of background masks to improve temporal consistency across frames. Experimental results demonstrate that T2VFire excels at producing highquality fire scene videos, establishing a new paradigm for
+video generation in virtual and augmented reality, while also supporting smart firefighting and the development of digital twin systems for building fire safety management.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+
+        <!-- Paper video. -->
+        <!--    <div class="columns is-centered has-text-centered">-->
+        <!--      <div class="column is-four-fifths">-->
+        <!--        <h2 class="title is-3">Video</h2>-->
+        <!--        <div class="publication-video">-->
+        <!--          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"-->
+        <!--                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+        <!--        </div>-->
+        <!--      </div>-->
+        <!--    </div>-->
+        <!--/ Paper video. -->
+    </div>
+</section>
+
+
+<!-- <section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3 has-text-centered">Architecture</h2>
+                <img alt="Architecture" src="./static/images/architecture.png" width="100%"/>
+                <p>The architecture of our GPT4Motion. First, the user prompt is inserted into our designed prompt
+                    template. Then, the Python script generated by GPT-4 drives the Blender physics engine to simulate
+                    the corresponding motion, producing sequences of edge maps and depth maps. Finally, two ControlNets
+                    are employed to constrain the physical motion of video frames generated by Stable Diffusion, where a
+                    temporal consistency constraint is designed to enforce the coherence among frames.</p>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+<!--<section class="section" id="BibTeX">-->
+<!--    <div class="container is-max-desktop content">-->
+<!--        <h2 class="title">BibTeX</h2>-->
+<!--        <pre><code>@article{2023GPT4Motion,-->
+<!--  author    = {GaaHey Leoi and Yi Huang and Mingfu Yan and Jiancheng Huang and Jianzhuang Liu and Yifan Liu and Yafei Wen and Xiaoxin Chen and Shifeng Chen},-->
+<!--  title     = {GPT4Motion: Scripting Physical Motions in Text-to-Video Generation via Blender-Oriented GPT Planning},-->
+<!--}</code></pre>-->
+<!--    </div>-->
+<!--</section>-->
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <!--      <a class="icon-link"-->
+            <!--         href="./static/videos/nerfies_paper.pdf">-->
+            <!--        <i class="fas fa-file-pdf"></i>-->
+            <!--      </a>-->
+            <!--      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>-->
+            <!--        <i class="fab fa-github"></i>-->
+            <!--      </a>-->
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+
